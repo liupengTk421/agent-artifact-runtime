@@ -1,0 +1,29 @@
+{
+  "schema": "artifact.state.v1",
+  "artifact_id": "art_img_001",
+  "version": 1,
+  "view": "ImageFeedbackPanel",
+  "props": {
+    "image_id": "img_001",
+    "title": "图片修改反馈",
+    "tools": [
+      "point",
+      "box",
+      "text"
+    ],
+    "annotations": []
+  },
+  "actions": [
+    {
+      "id": "submit_feedback",
+      "label": "提交反馈",
+      "side_effect": false
+    },
+    {
+      "id": "regenerate_region",
+      "label": "局部重绘",
+      "side_effect": true,
+      "requires_confirmation": true
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-artifact-runtime.local/schemas/runtime-lockfile.v1.schema.json",
+  "title": "Runtime Lockfile v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "artifact_id",
+    "runtime",
+    "protocols",
+    "catalog"
+  ],
+  "properties": {
+    "schema": {
+      "const": "runtime.lockfile.v1"
+    },
+    "artifact_id": {
+      "type": "string"
+    },
+    "runtime": {
+      "type": "object"
+    },
+    "protocols": {
+      "type": "object"
+    },
+    "catalog": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,165 @@
+[
+  {
+    "title": "M1: Define artifact.state.v1, feedback.event.v1, artifact.patch.v1 schemas",
+    "labels": [
+      "area:protocol",
+      "milestone:mvp",
+      "priority:p0"
+    ],
+    "body": "Lock the initial schema contracts. Acceptance: schemas exist, examples validate, docs explain versioning and compatibility."
+  },
+  {
+    "title": "M1: Implement core patch application and version checks",
+    "labels": [
+      "area:core",
+      "milestone:mvp",
+      "priority:p0"
+    ],
+    "body": "Implement JSON Patch subset: add, replace, remove, test. Reject artifact_id mismatch and base_version mismatch. Acceptance: unit tests and image-feedback fixture pass."
+  },
+  {
+    "title": "M1: Implement event log replay for artifact patches",
+    "labels": [
+      "area:core",
+      "milestone:mvp",
+      "priority:p0"
+    ],
+    "body": "Replay initial state plus JSONL events and produce final state. Acceptance: CLI replay supports examples/image-feedback/events.jsonl."
+  },
+  {
+    "title": "M1: Build ImageAnnotator point/box feedback component",
+    "labels": [
+      "area:components",
+      "milestone:mvp",
+      "priority:p0"
+    ],
+    "body": "Implement normalized coordinate mapping for pointer box selection and emit agent.feedback.v1 events. Acceptance: component emits box_comment with x/y in [0,1]."
+  },
+  {
+    "title": "M1: Build React ArtifactRenderer",
+    "labels": [
+      "area:renderer",
+      "milestone:mvp",
+      "priority:p0"
+    ],
+    "body": "Render ArtifactState views to trusted React components. Acceptance: ImageFeedbackPanel, DecisionPanel, TextFeedbackBox supported; unknown views render diagnostic fallback."
+  },
+  {
+    "title": "M1: Build playground image-feedback loop",
+    "labels": [
+      "area:playground",
+      "milestone:mvp",
+      "priority:p1"
+    ],
+    "body": "Show state, rendered artifact, feedback event, mock agent patch, updated state, and event log in one UI."
+  },
+  {
+    "title": "M1: Add CLI commands validate, apply-patch, replay",
+    "labels": [
+      "area:devtools",
+      "milestone:mvp",
+      "priority:p1"
+    ],
+    "body": "Provide local developer commands to validate JSON, apply patches, and replay event logs."
+  },
+  {
+    "title": "M1: Add GitHub Actions CI",
+    "labels": [
+      "area:infra",
+      "milestone:mvp",
+      "priority:p1"
+    ],
+    "body": "CI should run install, schema validation, typecheck, tests, and package builds."
+  },
+  {
+    "title": "M2: Add host sandbox and postMessage bridge hardening",
+    "labels": [
+      "area:host",
+      "milestone:runtime-hardening",
+      "priority:p1"
+    ],
+    "body": "Harden origin checks, event schema validation, sandbox policy, and CSP helpers. Acceptance: security tests reject unknown action and invalid origin."
+  },
+  {
+    "title": "M2: Add capability manifest and component catalog negotiation",
+    "labels": [
+      "area:protocol",
+      "area:agent-kit",
+      "milestone:runtime-hardening",
+      "priority:p1"
+    ],
+    "body": "Host should expose supported protocols/components/actions/budget. Agent-kit should compose manifest into patch prompts."
+  },
+  {
+    "title": "M2: Add action registry and confirmation boundary",
+    "labels": [
+      "area:gateway",
+      "milestone:runtime-hardening",
+      "priority:p1"
+    ],
+    "body": "Define action metadata: side_effect, requires_confirmation, required_permission. Unknown actions rejected by default."
+  },
+  {
+    "title": "M2: Add runtime lockfile and migration registry",
+    "labels": [
+      "area:core",
+      "milestone:runtime-hardening",
+      "priority:p2"
+    ],
+    "body": "Store runtime/protocol/catalog versions with artifacts. Add migration hooks and tests."
+  },
+  {
+    "title": "M3: Add gateway service skeleton",
+    "labels": [
+      "area:gateway",
+      "milestone:platform",
+      "priority:p2"
+    ],
+    "body": "Implement REST endpoints for artifacts, feedback, events, patches, and assets. Add in-memory store first."
+  },
+  {
+    "title": "M3: Add asset store abstraction",
+    "labels": [
+      "area:assets",
+      "milestone:platform",
+      "priority:p2"
+    ],
+    "body": "Represent images/audio/files as asset references. Avoid embedding large binary payloads in model context."
+  },
+  {
+    "title": "M3: Add replay regression test suite",
+    "labels": [
+      "area:testing",
+      "milestone:platform",
+      "priority:p2"
+    ],
+    "body": "Run historical fixtures through replay on every CI build and detect state drift."
+  },
+  {
+    "title": "M4: Add Web Component renderer",
+    "labels": [
+      "area:renderer",
+      "milestone:distribution",
+      "priority:p3"
+    ],
+    "body": "Expose <agent-artifact> custom element for cross-framework embedding."
+  },
+  {
+    "title": "M4: Add static HTML export adapter",
+    "labels": [
+      "area:adapters",
+      "milestone:distribution",
+      "priority:p3"
+    ],
+    "body": "Export trusted artifact state to static HTML for reports. Keep this separate from production runtime path."
+  },
+  {
+    "title": "M4: Add A2UI/MCP adapter exploration",
+    "labels": [
+      "area:adapters",
+      "milestone:distribution",
+      "priority:p3"
+    ],
+    "body": "Explore mapping ArtifactState to A2UI and action registry to MCP tools/resources. Keep optional and non-blocking."
+  }
+]

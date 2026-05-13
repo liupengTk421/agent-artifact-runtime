@@ -1,0 +1,25 @@
+{
+  "schema": "agent.feedback.v1",
+  "artifact_id": "art_img_001",
+  "artifact_version": 1,
+  "event_type": "box_comment",
+  "target": {
+    "kind": "image",
+    "asset_id": "img_001"
+  },
+  "payload": {
+    "region": {
+      "type": "box",
+      "coordinate_system": "normalized",
+      "x1": 0.32,
+      "y1": 0.21,
+      "x2": 0.58,
+      "y2": 0.43
+    },
+    "text": "这里太暗，请提亮，但不要改变人物表情。"
+  },
+  "source": {
+    "component": "ImageAnnotator",
+    "input_method": "pointer+text"
+  }
+}

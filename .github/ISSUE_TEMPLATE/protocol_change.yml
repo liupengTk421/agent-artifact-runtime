@@ -1,0 +1,16 @@
+name: Protocol change
+about: Propose a schema or protocol change
+labels: [area:protocol]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What protocol behavior should change?
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility impact
+      description: Does this require a migration or new major version?

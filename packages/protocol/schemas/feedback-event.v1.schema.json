@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-artifact-runtime.local/schemas/feedback-event.v1.schema.json",
+  "title": "Feedback Event v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "artifact_id",
+    "artifact_version",
+    "event_type",
+    "payload"
+  ],
+  "properties": {
+    "schema": {
+      "const": "agent.feedback.v1"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "event_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "kind": {
+          "type": "string"
+        },
+        "asset_id": {
+          "type": "string"
+        },
+        "component_id": {
+          "type": "string"
+        }
+      }
+    },
+    "payload": {
+      "type": "object"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "created_at": {
+      "type": "string"
+    }
+  }
+}

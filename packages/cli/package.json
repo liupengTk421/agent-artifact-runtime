@@ -1,0 +1,36 @@
+{
+  "name": "@agent-artifact-runtime/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "artifact": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "artifact": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@agent-artifact-runtime/core": "workspace:*",
+    "@agent-artifact-runtime/protocol": "workspace:*",
+    "commander": "^12.1.0",
+    "ajv": "^8.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2",
+    "tsx": "^4.19.2",
+    "vitest": "^2.1.8"
+  }
+}

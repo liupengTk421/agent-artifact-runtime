@@ -1,0 +1,30 @@
+{
+  "schema": "component.catalog.v1",
+  "version": "2026-05-13.base",
+  "components": {
+    "DecisionPanel": {
+      "version": "1.0.0",
+      "events": [
+        "choice_selected",
+        "decision"
+      ]
+    },
+    "TextFeedbackBox": {
+      "version": "1.0.0",
+      "events": [
+        "text_feedback"
+      ]
+    },
+    "ImageAnnotator": {
+      "version": "1.0.0",
+      "events": [
+        "point_comment",
+        "box_comment",
+        "text_feedback"
+      ],
+      "features": [
+        "normalized_coordinates"
+      ]
+    }
+  }
+}

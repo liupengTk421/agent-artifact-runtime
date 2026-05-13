@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-artifact-runtime.local/schemas/capability-manifest.v1.schema.json",
+  "title": "Capability Manifest v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "runtime",
+    "protocols",
+    "components"
+  ],
+  "properties": {
+    "schema": {
+      "const": "capability.manifest.v1"
+    },
+    "runtime": {
+      "type": "object"
+    },
+    "protocols": {
+      "type": "object"
+    },
+    "components": {
+      "type": "object"
+    },
+    "actions": {
+      "type": "object"
+    },
+    "budget": {
+      "type": "object"
+    }
+  }
+}

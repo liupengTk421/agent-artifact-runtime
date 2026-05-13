@@ -1,0 +1,28 @@
+{
+  "name": "agent-artifact-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.0",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "services/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r --filter './packages/**' --if-present build",
+    "typecheck": "pnpm -r --filter './packages/**' --if-present typecheck",
+    "test": "pnpm -r --filter './packages/**' --if-present test",
+    "lint": "node scripts/lint-placeholder.mjs",
+    "dev": "pnpm --filter @agent-artifact-runtime/playground dev",
+    "artifact": "pnpm --filter @agent-artifact-runtime/cli artifact",
+    "validate:schemas": "node scripts/validate-schemas.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8",
+    "tsx": "^4.19.2",
+    "jsdom": "^25.0.1"
+  }
+}

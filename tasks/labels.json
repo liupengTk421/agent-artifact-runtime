@@ -1,0 +1,107 @@
+[
+  {
+    "name": "area:protocol",
+    "color": "1f77b4",
+    "description": "Schemas, versions, capability manifests"
+  },
+  {
+    "name": "area:core",
+    "color": "2ca02c",
+    "description": "Validation, patching, replay, migrations"
+  },
+  {
+    "name": "area:components",
+    "color": "ff7f0e",
+    "description": "Trusted UI feedback components"
+  },
+  {
+    "name": "area:renderer",
+    "color": "9467bd",
+    "description": "React/WebComponent rendering"
+  },
+  {
+    "name": "area:host",
+    "color": "d62728",
+    "description": "Sandbox, bridge, security boundary"
+  },
+  {
+    "name": "area:gateway",
+    "color": "8c564b",
+    "description": "Backend gateway and trusted actions"
+  },
+  {
+    "name": "area:agent-kit",
+    "color": "17becf",
+    "description": "Agent context and patch output policy"
+  },
+  {
+    "name": "area:playground",
+    "color": "bcbd22",
+    "description": "Demo app and local debugging"
+  },
+  {
+    "name": "area:devtools",
+    "color": "7f7f7f",
+    "description": "CLI and developer tools"
+  },
+  {
+    "name": "area:infra",
+    "color": "000000",
+    "description": "CI/CD, release, workspace setup"
+  },
+  {
+    "name": "area:assets",
+    "color": "e377c2",
+    "description": "Images, audio, files, binary references"
+  },
+  {
+    "name": "area:testing",
+    "color": "4c78a8",
+    "description": "Contract, replay, migration, security tests"
+  },
+  {
+    "name": "area:adapters",
+    "color": "f58518",
+    "description": "A2UI, MCP, HTML export adapters"
+  },
+  {
+    "name": "milestone:mvp",
+    "color": "00a676",
+    "description": "MVP milestone"
+  },
+  {
+    "name": "milestone:runtime-hardening",
+    "color": "005a9c",
+    "description": "Hardening milestone"
+  },
+  {
+    "name": "milestone:platform",
+    "color": "6f42c1",
+    "description": "Platform milestone"
+  },
+  {
+    "name": "milestone:distribution",
+    "color": "b60205",
+    "description": "Distribution milestone"
+  },
+  {
+    "name": "priority:p0",
+    "color": "b60205",
+    "description": "Must have"
+  },
+  {
+    "name": "priority:p1",
+    "color": "d93f0b",
+    "description": "High priority"
+  },
+  {
+    "name": "priority:p2",
+    "color": "fbca04",
+    "description": "Medium priority"
+  },
+  {
+    "name": "priority:p3",
+    "color": "c5def5",
+    "description": "Low priority"
+  }
+]
