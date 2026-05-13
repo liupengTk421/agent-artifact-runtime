@@ -5,14 +5,32 @@ on:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: replay-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   replay:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: corepack enable
-      - run: pnpm install
-      - run: pnpm --filter @agent-artifact-runtime/cli artifact replay --state examples/image-feedback/initial.state.json --events examples/image-feedback/events.jsonl
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate example state
+        run: pnpm artifact validate examples/image-feedback/artifact.state.json
+
+      - name: Replay example event log
+        run: pnpm --filter @agent-artifact-runtime/cli artifact replay --state examples/image-feedback/initial.state.json --events examples/image-feedback/events.jsonl
