@@ -43,6 +43,13 @@ function readPath(doc: any, path: string): unknown {
   return current;
 }
 
+function parseArrayIndex(key: string, path: string): number {
+  const index = Number(key);
+  if (!Number.isInteger(index)) throw new PatchApplyError(`Invalid array index: ${key}`);
+  if (index < 0) throw new PatchApplyError(`Invalid array index: ${key}`);
+  return index;
+}
+
 function applyOp(doc: any, op: JsonPatchOperation): void {
   if (op.op === "test") {
     const actual = readPath(doc, op.path);
@@ -56,8 +63,8 @@ function applyOp(doc: any, op: JsonPatchOperation): void {
 
   if (op.op === "remove") {
     if (Array.isArray(parent)) {
-      const index = Number(key);
-      if (!Number.isInteger(index)) throw new PatchApplyError(`Invalid array index: ${key}`);
+      const index = parseArrayIndex(key, op.path);
+      if (index >= parent.length) throw new PatchApplyError(`Invalid array index: ${key}`);
       parent.splice(index, 1);
     } else {
       if (!(key in parent)) throw new PatchApplyError(`Path not found: ${op.path}`);
@@ -68,8 +75,13 @@ function applyOp(doc: any, op: JsonPatchOperation): void {
 
   if (op.op === "add") {
     if (Array.isArray(parent)) {
-      if (key === "-") parent.push(op.value);
-      else parent.splice(Number(key), 0, op.value);
+      if (key === "-") {
+        parent.push(op.value);
+      } else {
+        const index = parseArrayIndex(key, op.path);
+        if (index > parent.length) throw new PatchApplyError(`Invalid array index: ${key}`);
+        parent.splice(index, 0, op.value);
+      }
     } else {
       parent[key] = op.value;
     }
@@ -78,8 +90,8 @@ function applyOp(doc: any, op: JsonPatchOperation): void {
 
   if (op.op === "replace") {
     if (Array.isArray(parent)) {
-      const index = Number(key);
-      if (!Number.isInteger(index) || index < 0 || index >= parent.length) {
+      const index = parseArrayIndex(key, op.path);
+      if (index >= parent.length) {
         throw new PatchApplyError(`Invalid array index: ${key}`);
       }
       parent[index] = op.value;
